@@ -99,7 +99,7 @@ int precedence(char value) {
 int evaluate_prefix(char *prefix) {
     struct Stack *stack = create_stack();
     char symb;
-    int value, oprnd1, oprnd2, num;
+    int value, oprnd1, oprnd2;
     int i = 0;
     for (i = (int) strlen(prefix) - 1; i >= 0; i--) {
         symb = prefix[i];
@@ -128,7 +128,7 @@ int evaluate_prefix(char *prefix) {
             push(stack, value);
         }
     }
-    return value;
+    return pop(stack);
 }
 
 /*
